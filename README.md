@@ -1,73 +1,136 @@
-# React + TypeScript + Vite
+# CaloCount Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react\&logoColor=000)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite\&logoColor=fff)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript\&logoColor=fff)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-styling-06B6D4?logo=tailwindcss\&logoColor=fff)
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
-Currently, two official plugins are available:
+Frontend do **CaloCount**, uma aplicação web para acompanhamento alimentar, registro de refeições e visualização de consumo calórico. A interface foi desenvolvida com React, Vite e TailwindCSS, consumindo a API do CaloCount Backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Visão geral
 
-## React Compiler
+O CaloCount Frontend oferece uma interface para que o usuário possa acessar sua conta, registrar refeições, acompanhar dados nutricionais e visualizar informações do perfil. O projeto foi estruturado com páginas separadas, componentes reutilizáveis e integração com API por meio de uma camada de serviços.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Funcionalidades
 
-## Expanding the ESLint configuration
+* Login e autenticação de usuários.
+* Dashboard com visão geral do consumo alimentar.
+* Registro e listagem de refeições.
+* Perfil do usuário.
+* Integração com API backend.
+* Gerenciamento de estado e requisições com React Query.
+* Interface responsiva.
+* Componentização da interface.
+* Preparado para evolução com análise de alimentos por imagem.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tecnologias
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* **React**
+* **Vite**
+* **TypeScript**
+* **TailwindCSS**
+* **TanStack React Query**
+* **Axios**
+* **React Router DOM**
+* **Lucide React**
+* **ESLint**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Estrutura do projeto
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```txt id="v1u7zf"
+src/
+├── assets/        # Imagens e recursos estáticos
+├── components/    # Componentes reutilizáveis
+├── lib/           # Cliente HTTP, configurações e utilitários
+├── pages/         # Páginas principais da aplicação
+├── App.tsx        # Rotas e estrutura principal
+├── main.tsx       # Ponto de entrada da aplicação
+└── index.css      # Estilos globais
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Páginas principais
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* **Login**: autenticação do usuário.
+* **Dashboard**: visão geral dos dados alimentares.
+* **Refeições**: registro e acompanhamento das refeições.
+* **Perfil**: informações e configurações do usuário.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Como executar localmente
+
+### Pré-requisitos
+
+* Node.js 20+
+* npm
+* CaloCount Backend em execução
+
+### Passo a passo
+
+```bash id="m0gd95"
+git clone https://github.com/NasserCaixeta/Calocount-Frontend.git
+cd Calocount-Frontend
+npm install
+npm run dev
 ```
+
+A aplicação será iniciada localmente pelo Vite.
+
+## Variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto com a URL da API:
+
+```env id="eyoj5x"
+VITE_API_URL=http://localhost:8000
+```
+
+> Ajuste a variável de acordo com o nome usado no cliente HTTP do projeto.
+
+## Scripts disponíveis
+
+```bash id="xj3xj2"
+npm run dev       # Inicia o ambiente de desenvolvimento
+npm run build     # Gera a build de produção
+npm run preview   # Visualiza a build localmente
+npm run lint      # Executa verificação de lint
+```
+
+## Backend relacionado
+
+* [Calocount-Backend](https://github.com/NasserCaixeta/Calocount-Backend)
+
+## Possíveis casos de uso
+
+* Controle de calorias diárias.
+* Organização de refeições.
+* Acompanhamento de hábitos alimentares.
+* Registro de histórico nutricional.
+* Base para aplicação com análise de alimentos por imagem.
+
+## Próximas melhorias sugeridas
+
+* Adicionar prints reais das telas.
+* Documentar fluxo completo de login e registro de refeições.
+* Melhorar feedback visual de carregamento e erro.
+* Criar testes de componentes e páginas.
+* Adicionar página de onboarding do usuário.
+* Integrar análise de imagem de alimentos, caso disponível no backend.
+* Melhorar SEO e metadados da aplicação.
+
+## Deploy
+
+Para gerar a versão de produção:
+
+```bash id="ajh7kh"
+npm run build
+```
+
+Depois, publique a pasta `dist` em uma plataforma como:
+
+* Vercel
+* Netlify
+* Cloudflare Pages
+* Render Static Site
+
+## Autor
+
+Desenvolvido por [Nasser Caixeta](https://github.com/NasserCaixeta).
